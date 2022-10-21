@@ -1,4 +1,5 @@
-const number0fFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+import  './cycles.js';
+const number0fFilms = prompt('Сколько фильмов вы уже посмотрели?', '');
 
 const personalMovieDB = {
     count: number0fFilms,
@@ -8,12 +9,25 @@ const personalMovieDB = {
     privat: false
 };
 
-const movieFilm = prompt('Один из последних просмотренных фильмов?', ''),
-      scoreFilm = prompt('На сколько оцените его?', ''),
-      movieFilm2 = prompt('Один из последних просмотренных фильмов?', ''),
-      scoreFilm2 = prompt('На сколько оцените его?', '');
+if (personalMovieDB.count < 10) {
+    alert('Просмотрено довольно мало фильмов');
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+    alert('Вы классический зритель');
+} else if (personalMovieDB.count >= 30) {
+    alert('Вы киноман');
+} else (
+    alert('Произошла ошибка')
+);
 
-personalMovieDB.movies[movieFilm] = scoreFilm;
-personalMovieDB.movies[movieFilm2] = scoreFilm2;
+for (let i = 1; i < 3; i++) {
+    let movieFilm = prompt('Один из последних просмотренных фильмов?', '');
+    let scoreFilm = prompt('На сколько оцените его?', '');
+
+    if(movieFilm != null && scoreFilm != null && movieFilm != '' && scoreFilm != '' && movieFilm.length < 50) {
+        personalMovieDB.movies[movieFilm] = scoreFilm;
+    } else {
+        i--;
+    }
+};
 
 console.log(personalMovieDB);
