@@ -25,13 +25,13 @@ const movieDB = {
 };
 
 const promoAdv = document.querySelector('.promo__adv');
-const promoBlosks = promoAdv.querySelectorAll('img');
+const promoBlocks = promoAdv.querySelectorAll('img');
 const promoBg = document.querySelector('.promo__bg');
 const promoGenre = promoBg.querySelector('.promo__genre');
 const promoInteractiveList = document.querySelector('.promo__interactive-list');
 const promoInteractiveItem = promoInteractiveList.querySelectorAll('.promo__interactive-item');
 
-promoBlosks.forEach(el => {
+promoBlocks.forEach(el => {
     el.remove();
 });
 
